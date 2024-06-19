@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PayPal Charge Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>PayPal Charge Calculator</h1>
+    <form id="chargeForm">
+      <label for="customerCharge">Enter Charge Seen by Customer (ZAR):</label>
+      <input type="number" id="customerCharge" required />
+      <button type="button" onclick="calculateCharge()">Calculate</button>
+    </form>
+    <div id="result"></div>
+    <p>This is a tool for use by Etaerc however it is free and open source.</p>
+    <p>
+      PayPal typically uses its own internal currency conversion rates when
+      processing transactions involving different currencies. These rates can
+      vary slightly from the publicly available rates you might find on
+      platforms like Coinbase or other currency converters. PayPal's conversion
+      rates are usually updated regularly and are applied when converting one
+      currency to another during transactions. Therefore, while external
+      converters like "pyusd" on Coinbase can provide a good estimate, the exact
+      conversion rate used by PayPal may differ slightly due to factors such as
+      market fluctuations and PayPal's own currency exchange policies.
+    </p>
+    <p>
+      please monitor for changes in PayPal's currency exchange policies here:
+      <a href="https://www.paypal.com/us/webapps/mpp/merchant-fees"
+        >Paypal merchant fees</a
+      >
+    </p>
+    <p>
+      currently this application assumes standard rate for receiving commercial
+      domestic transactions to be: 3.49% + fixed fee of 0.49USD when using
+      PayPal Checkout and PayPal Guest Checkout.<br />
+      percentage rate can be checked here:
+      <a href="https://www.paypal.com/us/webapps/mpp/merchant-fees"
+        >Paypal merchant fees</a
+      ><br />
+      fixed fee can be checked here:
+      <a
+        href="https://www.paypal.com/us/webapps/mpp/merchant-fees#fixed-fees-commercialtrans"
+        >Paypal fixed fees for PayPal Checkout</a
+      >
+    </p>
+    <script src="script.js"></script>
+  </body>
+</html>
