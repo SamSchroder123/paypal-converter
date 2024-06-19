@@ -1,7 +1,8 @@
 async function calculateCharge() {
+  const fixedFeeUSD = 0.49;
   const customerChargeZAR = document.getElementById("customerCharge").value;
   const conversionRate = await fetchConversionRate();
-  const fixedFeeZAR = 0.49 / conversionRate;
+  const fixedFeeZAR = fixedFeeUSD / conversionRate;
   const baseChargeZAR = (customerChargeZAR - fixedFeeZAR) / 1.0349;
   const baseChargeUSD = baseChargeZAR * conversionRate;
 
