@@ -3,6 +3,7 @@ async function calculateCharge() {
   const conversionRate = await fetchConversionRate();
   const fixedFeeZAR = 0.49 / conversionRate;
   const baseChargeZAR = (customerChargeZAR - fixedFeeZAR) / 1.0349;
+  const baseChargeUSD = baseChargeZAR * conversionRate;
 
   // Detailed breakdown for transparency
   let detailedResult = `
@@ -10,8 +11,9 @@ async function calculateCharge() {
         Customer Charge (ZAR): ${customerChargeZAR}<br>
         Conversion Rate (ZAR to USD): ${conversionRate.toFixed(4)}<br>
         Fixed Fee in ZAR (0.49 USD): ${fixedFeeZAR.toFixed(2)} ZAR<br>
-        <strong>Result:</strong><br>
-        Base Charge (ZAR): ${baseChargeZAR.toFixed(2)} ZAR
+        <strong>Result:</strong><br><br>
+        Base Charge (ZAR): ${baseChargeZAR.toFixed(2)} ZAR<br>
+        Base Charge (USD): ${baseChargeUSD.toFixed(2)} USD
     `;
 
   document.getElementById("result").innerHTML = detailedResult;
